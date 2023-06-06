@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="dialect">com.example.medicalapp.persistance.dialect.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:identifier.sqlite</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+
+        <mapping class="com.example.medicalapp.domain.MedicalStaff"/>
+        <mapping resource="com/example/medicalapp/hibernate/medstaff.xml"/>
+
+        <mapping class="com.example.medicalapp.domain.Order"/>
+        <mapping resource="com/example/medicalapp/hibernate/order.xml"/>
+
+        <mapping class="com.example.medicalapp.domain.OrderLine"/>
+        <mapping resource="com/example/medicalapp/hibernate/orderline.xml"/>
+
+        <mapping class="com.example.medicalapp.domain.Stock"/>
+        <mapping resource="com/example/medicalapp/hibernate/stock.xml"/>
+
+        <mapping class="com.example.medicalapp.domain.Pharmacist"/>
+        <mapping resource="com/example/medicalapp/hibernate/pharmacist.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

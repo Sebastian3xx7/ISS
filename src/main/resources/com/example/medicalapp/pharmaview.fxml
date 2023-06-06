@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicalapp.controllers.PharmacyController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="900.0" style="-fx-background-image: url('https://img.freepik.com/vecteurs-premium/comprime-medical-capsules-vitamines-vecteur-icone-cercle-fond-blanc_418020-174.jpg');" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="32.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text fx:id="textPharm" layoutX="27.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- pharmacist">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <TableView fx:id="orderTable" layoutX="467.0" layoutY="69.0" prefHeight="297.0" prefWidth="406.0">
+              <columns>
+                <TableColumn fx:id="dateColumn" prefWidth="148.66668701171875" text="Order Date" />
+                <TableColumn fx:id="descriptionCol" prefWidth="260.00006103515625" text="Description" />
+                  <TableColumn prefWidth="151.33331298828125" text="Status" />
+              </columns>
+            </TableView>
+            <Button fx:id="completeOrdButton" defaultButton="true" layoutX="467.0" layoutY="706.0" mnemonicParsing="false" onAction="#completeOrder" prefHeight="25.0" prefWidth="406.0" style="-fx-background-color: #5492D7;" text="Complete order" textFill="WHITE" />
+            <Text layoutX="637.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All pending orders:" />
+            <TableView fx:id="stockTable" layoutX="32.0" layoutY="123.0" prefHeight="411.0" prefWidth="406.0">
+              <columns>
+                <TableColumn fx:id="medicineCol" prefWidth="163.33330917358398" text="Medicine" />
+                <TableColumn fx:id="skuCol" prefWidth="147.3332977294922" text="Stock Keeping Unit" />
+                  <TableColumn fx:id="quantityCol" prefWidth="100.6666259765625" text="Quantity" />
+              </columns>
+            </TableView>
+            <Text fill="#fbfbfb" layoutX="203.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmacy stock:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="32.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+            <TextField fx:id="nameField" layoutX="35.0" layoutY="594.0" minHeight="-Infinity" prefHeight="17.0" prefWidth="218.0" />
+            <Text layoutX="32.0" layoutY="629.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" />
+            <TextField fx:id="quantityField" layoutX="35.0" layoutY="633.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="218.0" />
+            <Text layoutX="32.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modify medicine stock:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="updateStockButton" defaultButton="true" layoutX="35.0" layoutY="661.0" mnemonicParsing="false" onAction="#updateStock" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #5492D7;" text="Update" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="467.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View list of requests:" />
+            <TableView fx:id="orderDetailsTable" layoutX="467.0" layoutY="415.0" prefHeight="275.0" prefWidth="406.0">
+              <columns>
+                <TableColumn fx:id="medDetailsCol" prefWidth="254.0" text="Medicine" />
+                <TableColumn fx:id="quantityDetailsCol" prefWidth="151.3333740234375" text="Quantity" />
+              </columns>
+            </TableView>
+            <Button fx:id="selectButton" defaultButton="true" layoutX="591.0" layoutY="379.0" mnemonicParsing="false" onAction="#seeOrders" prefHeight="25.0" prefWidth="282.0" style="-fx-background-color: #5492D7;" text="Select" textFill="WHITE" />
+            <Button fx:id="logOutButton" defaultButton="true" layoutX="35.0" layoutY="706.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: #5492D7;" text="Log Out" textFill="WHITE" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
